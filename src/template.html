@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width,initial-scale=1.0'>
+	<meta name='theme-color' content='#333333'>
+
+	%sapper.base%
+
+	<link rel='stylesheet' href='global.css'>
+	<link rel='manifest' href='manifest.json'>
+	<link rel='icon' type='image/png' href='favicon.png'>
+
+	<!-- Sapper generates a <style> tag containing critical CSS
+	     for the current page. CSS for the rest of the app is
+	     lazily loaded when it precaches secondary pages -->
+	%sapper.styles%
+
+	<!-- This contains the contents of the <svelte:head> component, if
+	     the current page has one -->
+	%sapper.head%
+</head>
+<body>
+	<!-- The application will be rendered inside this element,
+	     because `src/client.js` references it -->
+	<div id='sapper'>%sapper.html%</div>
+
+	<!-- Sapper creates a <script> tag containing `src/client.js`
+	     and anything else it needs to hydrate the app and
+	     initialise the router -->
+	%sapper.scripts%
+	<script>
+	    (function(b,a,t,c,h,e,r){h='batchSDK';b[h]=b[h]||function() {
+        (b[h].q=b[h].q||[]).push(arguments)};e=a.createElement(t),r=a.getElementsByTagName(t)[0];
+        e.async=1;e.src=c;r.parentNode.insertBefore(e,r);})(window,document,'script','https://via.batch.com/v2/bootstrap.min.js');
+          batchSDK('setup', {
+            apiKey: '09CCDE0A59A741CC9D3B0B9962369288',
+            authKey: '2.Ycny7ixA55rH230dbPXodHHLnbO4jL4G/dVv1bYgeB8=',
+            dev: true, // remove this for prod
+            vapidPublicKey: 'BP/XG/Knb4Kqn8NwmRUZNeMsFubLpPAaj12vLxF5bgRnn0vqWfmNy6afDjHxbtmRL6GgpizlDPRNTULsXFjDqGc=',
+            defaultIcon: 'https://secure.url.to.your.icon.png', // default push icon on Chrome
+            ui: { // refer to the documentation to learn more https://batch.com/doc/web/ui-components.html
+              language: 'fr',
+              button: {
+                  corner: 'bottom left',
+                  popin: {
+                      example: {
+                          icon: 'https://path/to/your/icon.jpg',
+                          title: 'Test title',
+                          body: 'Test body'
+                      }
+                  }
+              }
+            },
+        });
+</script>
+</body>
+</html>
