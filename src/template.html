@@ -35,21 +35,16 @@
         e.async=1;e.src=c;r.parentNode.insertBefore(e,r);})(window,document,'script','https://via.batch.com/v2/bootstrap.min.js');
           batchSDK('setup', {
             apiKey: '09CCDE0A59A741CC9D3B0B9962369288',
+              subdomain: 'netlify',
+              useExistingServiceWorker: true,
             authKey: '2.Ycny7ixA55rH230dbPXodHHLnbO4jL4G/dVv1bYgeB8=',
             vapidPublicKey: 'BP/XG/Knb4Kqn8NwmRUZNeMsFubLpPAaj12vLxF5bgRnn0vqWfmNy6afDjHxbtmRL6GgpizlDPRNTULsXFjDqGc=',
             defaultIcon: 'https://secure.url.to.your.icon.png', // default push icon on Chrome
             ui: { // refer to the documentation to learn more https://batch.com/doc/web/ui-components.html
               language: 'fr',
-              button: {
-                  corner: 'bottom left',
-                  popin: {
-                      example: {
-                          icon: 'https://path/to/your/icon.jpg',
-                          title: 'Test title',
-                          body: 'Test body'
-                      }
-                  }
-              }
+				native: {
+					"backoffDuration": 86400
+				}
             },
         });
 </script>
