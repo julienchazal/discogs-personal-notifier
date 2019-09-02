@@ -37,35 +37,18 @@
 </svelte:head>
 
 <script>
-// import test from '../components/Utils.svelte'
-// test();
-    //************** FETCH API ******************//
-    function status(response) {
-        if (response.status >= 200 && response.status < 300) {
-            return Promise.resolve(response)
+	import {utilsFetch} from '../components/Utils.svelte'
+
+    function fetchCb(data, isErr) {
+        if (isErr) {
+            alert('error');
         } else {
-            return Promise.reject(new Error(response.statusText))
+			console.log(data);
+			console.log(data.artists_sort + ' - ' + data.title + ' - ' + data.num_for_sale + ' en vente !');
         }
     }
-
-    function json(response) {
-        return response.json()
-    }
-
-    function text(response) {
-        return response.text()
-    }
     const name = 'test'
-    fetch('https://api.discogs.com/releases/2387793', {credentials: 'same-origin'})
-            .then(status)
-            .then(json)
-            .then(data => {
-                console.log(data);
-                console.log(data.artists_sort + ' - ' + data.title + ' - ' + data.num_for_sale + ' en vente.');
-            })
-            .catch(err => {
-                console.log(err);
-            });
+    utilsFetch('https://api.discogs.com/releases/2387793', 'json', fetchCb)
 </script>
 
 <h1>Great success!</h1>

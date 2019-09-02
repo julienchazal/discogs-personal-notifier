@@ -1,5 +1,4 @@
-<script >
- export function test () {console.log('utils')};
+<script context="module">
 //************** FETCH API ******************//
 function status(response) {
     if (response.status >= 200 && response.status < 300) {
