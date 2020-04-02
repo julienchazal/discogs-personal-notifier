@@ -6,7 +6,7 @@
 
     async function searchFn() {
         console.log('q = '+search)
-        q = await fetch('https://api.discogs.com/database/search?q='+search+'&type=release&key=zOXIgBWYIOOXAiDqlfLs&secret=OWkTTrjHpzDTdYABSImEJPAEkubAIqKV');
+        q = await fetch('https://api.discogs.com/database/search?q='+search+'&type=release&key=DISCOGS_KEY&secret=DISCOGS_SECRET');
         res = await q.json();
         console.log(res);
         results = res.results;
