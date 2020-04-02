@@ -1,5 +1,5 @@
 <script>
-    import Search from './Search';
+    import Search from './Search.svelte';
     let greet = 'Discogs personal notifier';
 </script>
 

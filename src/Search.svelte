@@ -1,4 +1,5 @@
 <script>
+    import {debounce} from './utils'
     let search = '';
     let results = [];
     let q, res;
@@ -11,8 +12,14 @@
         results = res.results;
     }
 
-    $: if (search !== '') {
+    const debounceFn = debounce( () => {
         searchFn();
+    }, 800);
+
+    $: if (search !== '') {
+        debounceFn();
+    } else {
+        results = []
     }
 </script>
 
@@ -45,7 +52,7 @@
         border-top: none;
         border-left: none;
         border-right: none;
-        border-bottom: 1px solid #41adff;
+        border-bottom: 2px solid #41adff;
         padding: 1rem;
         width: 100%;
     }
