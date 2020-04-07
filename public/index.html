@@ -11,5 +11,36 @@
     <script defer src='/build/bundle.js'></script>
 </head>
 <body>
+<div id="app"></div>
+<script type="text/javascript">
+    /* Load remote Batch SDK JavaScript code */
+    (function(b,a,t,c,h,e,r){h='batchSDK';b[h]=b[h]||function() {
+        (b[h].q=b[h].q||[]).push(arguments)};e=a.createElement(t),r=a.getElementsByTagName(t)[0];
+        e.async=1;e.src=c;r.parentNode.insertBefore(e,r);})(window,document,'script','https://via.batch.com/v2/bootstrap.min.js');
+
+    /* Initiate Batch SDK opt-in UI configuration (native prompt) */
+    var batchSDKUIConfig = {
+        native: {}
+    };
+
+    /* Use a specific configuration for the Firefox web browser (custom prompt) */
+    if (navigator.userAgent.indexOf("Firefox") !== -1) {
+        batchSDKUIConfig = {
+            alert: {
+                icon: 'https://secure.url.to.your.icon.jpg'
+            }
+        }
+    }
+
+    /* Finalize the Batch SDK setup */
+    batchSDK('setup', {
+        apiKey: '09CCDE0A59A741CC9D3B0B9962369288',
+        subdomain: 'netlify',
+        authKey: '2.Ycny7ixA55rH230dbPXodHHLnbO4jL4G/dVv1bYgeB8=',
+        dev: true, // remove this for prod
+        vapidPublicKey: 'BP/XG/Knb4Kqn8NwmRUZNeMsFubLpPAaj12vLxF5bgRnn0vqWfmNy6afDjHxbtmRL6GgpizlDPRNTULsXFjDqGc=',
+        ui: batchSDKUIConfig,
+    });
+</script>
 </body>
 </html>
