@@ -21,6 +21,34 @@
     } else {
         results = []
     }
+
+   function test () {
+        let myHeaders = new Headers(
+                {
+                    "Content-Type": "application/json",
+                    "X-Authorization": "96aad9d50390e92334568124b3db9aa1",
+                }
+        );
+
+        let myInit = { method: 'POST',
+            headers: myHeaders,
+            mode: 'cors',
+            cache: 'default',
+            body: JSON.stringify({
+                "group_id":"discogs",
+                "recipients": {
+                    "install_ids":["1844d557-2c4e-4825-8b85-1d0976b90ecd"]
+                },
+                "message":{
+                    "title":"Discogs personal notifier",
+                    "body":"Truc en vente ma gueule"
+                },
+                "deeplink": "https://google.fr"
+            })
+        };
+
+        fetch('https://api.batch.com/1.1/9D6C2881521A4D88880E100F8F5708D9/transactional/send',myInit);
+    }
 </script>
 
 <div class="search">
@@ -41,6 +69,8 @@
         </ul>
     </div>
 </div>
+
+<button on:click={test}>TEST</button>
 
 <style>
     .search {
