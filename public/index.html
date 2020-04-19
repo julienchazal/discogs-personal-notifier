@@ -12,7 +12,7 @@
 </head>
 <body>
 <div id="app"></div>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     /* Load remote Batch SDK JavaScript code */
 (function(b,a,t,c,h,e,r){h='batchSDK';b[h]=b[h]||function() {
   (b[h].q=b[h].q||[]).push(arguments)};e=a.createElement(t),r=a.getElementsByTagName(t)[0];
@@ -39,6 +39,22 @@ batchSDK('setup', {
   authKey: '2.Io3705NIdvqiwDmt4I704W3Vp57BIagF1AIsCAjXro8=',
   vapidPublicKey: 'BF6Err0Q75xHJYiWzGY6v1dTSfw53wv8Ylxknhvt3uyfdwm9PiejnTaSSi/ZzxfFOYdotAFgIjido3jV1z+uPV0=',
   ui: batchSDKUIConfig,
+});
+</script> -->
+<script src="https://sdk.pushy.me/web/1.0.5/pushy-sdk.js"></script>
+<script>
+  // Register device for push notifications
+Pushy.register({ appId: '5e9c8294adead2f249463477' }).then(function (deviceToken) {
+    // Print device token to console
+    console.log('Pushy device token: ' + deviceToken);
+
+    // Send the token to your backend server via an HTTP GET request
+    //fetch('https://your.api.hostname/register/device?token=' + deviceToken);
+
+    // Succeeded, optionally do something to alert the user
+}).catch(function (err) {
+    // Handle registration errors
+    console.error(err);
 });
 </script>
 </body>
