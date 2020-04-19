@@ -46,7 +46,7 @@ batchSDK('setup', {
   // Register device for push notifications
 Pushy.register({ appId: '5e9c8294adead2f249463477' }).then(function (deviceToken) {
     // Print device token to console
-    console.log('Pushy device token: ' + deviceToken);
+    alert('Pushy device token: ' + deviceToken);
 
     // Send the token to your backend server via an HTTP GET request
     //fetch('https://your.api.hostname/register/device?token=' + deviceToken);
